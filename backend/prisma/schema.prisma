@@ -1,0 +1,63 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Company {
+  id             String         @id @default(uuid())
+  name           String
+  slug           String         @unique
+  levelFramework String?
+  createdAt      DateTime       @default(now())
+  entries        SalaryEntry[]
+  levelMappings  LevelMapping[]
+}
+
+model Role {
+  id              String        @id @default(uuid())
+  name            String
+  family          String
+  normalizedTitle String
+  entries         SalaryEntry[]
+}
+
+model Location {
+  id       String        @id @default(uuid())
+  city     String
+  metro    String
+  country  String
+  colIndex Float         @default(1.0)
+  entries  SalaryEntry[]
+}
+
+model SalaryEntry {
+  id           String   @id @default(uuid())
+  companyId    String
+  roleId       String
+  locationId   String
+  level        String
+  yearsOfExp   Int
+  baseSalary   Int
+  annualBonus  Int      @default(0)
+  equityAnnual Int      @default(0)
+  totalComp    Int
+  currency     String   @default("INR")
+  status       String   @default("approved")
+  submittedAt  DateTime @default(now())
+
+  company  Company  @relation(fields: [companyId], references: [id])
+  role     Role     @relation(fields: [roleId], references: [id])
+  location Location @relation(fields: [locationId], references: [id])
+}
+
+model LevelMapping {
+  id              String  @id @default(uuid())
+  companyId       String
+  companyLevel    String
+  normalizedLevel String
+  company         Company @relation(fields: [companyId], references: [id])
+}
