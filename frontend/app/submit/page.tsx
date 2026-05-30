@@ -3,16 +3,29 @@
 import { useState } from "react";
 import { postEntry } from "@/lib/api";
 
-const COMPANIES = ["google", "amazon", "flipkart", "swiggy", "zepto"];
+ 
 const ROLES = ["swe", "sre", "ds", "pm"];
-const CITIES = ["Bangalore", "Hyderabad", "Mumbai", "Delhi"];
+const CITIES = ["Bengaluru", "Hyderabad", "London", "Remote", "San Mateo", "Singapore"];
+
+const COMPANIES = ["amazon", "apple", "bytedance", "citadel", "coinbase", "google", "intel", "linkedin", "meta", "microsoft", "netflix", "oracle", "roblox", "salesforce", "snap", "uber"];
 
 const LEVEL_MAP: Record<string, string[]> = {
+  amazon: ["L4", "L5", "L6", "L7"],
+  apple: ["ICT2", "ICT3", "ICT4", "ICT5"],
+  bytedance: ["L3", "L4", "L5"],
+  citadel: ["New Grad", "Mid", "Senior", "Staff"],
+  coinbase: ["IC3", "IC4", "IC5"],
   google: ["L3", "L4", "L5", "L6"],
-  amazon: ["SDE1", "SDE2", "SDE3"],
-  flipkart: ["SDE1", "SDE2", "SDE3"],
-  swiggy: ["L1", "L2", "L3"],
-  zepto: ["L1", "L2", "L3"],
+  intel: ["Grade 5", "Grade 7", "Grade 8"],
+  linkedin: ["IC2", "IC3", "IC4", "IC5"],
+  meta: ["E3", "E4", "E5", "E6"],
+  microsoft: ["59-60", "61-62", "63-64", "65-67"],
+  netflix: ["Mid", "Senior", "Staff"],
+  oracle: ["IC2", "IC3", "IC4", "IC5"],
+  roblox: ["IC3", "IC4", "IC5"],
+  salesforce: ["MTS", "SMTS", "LMTS"],
+  snap: ["L3", "L4", "L5"],
+  uber: ["L3", "L4", "L5", "L6"],
 };
 
 export default function SubmitPage() {

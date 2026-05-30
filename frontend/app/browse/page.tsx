@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react";
 import { getEntries } from "@/lib/api";
 
-const COMPANIES = ["google", "amazon", "flipkart", "swiggy", "zepto"];
+const COMPANIES = ["amazon", "apple", "bytedance", "citadel", "coinbase", "google", "intel", "linkedin", "meta", "microsoft", "netflix", "oracle", "roblox", "salesforce", "snap", "uber"];
 const ROLES = ["swe", "sre", "ds", "pm"];
 const LEVELS = ["junior", "mid", "senior", "staff"];
-const CITIES = ["Bangalore", "Hyderabad", "Mumbai", "Delhi"];
+const CITIES = ["Bengaluru", "Hyderabad", "London", "Remote", "San Mateo", "Singapore"];
 
 function formatINR(amount: number) {
   return new Intl.NumberFormat("en-IN", {
@@ -160,7 +160,7 @@ export default function BrowsePage() {
                 {entries.map((entry) => (
                   <tr key={entry.id} className="hover:bg-zinc-50 transition-colors">
                     <td className="px-4 py-3 font-medium text-zinc-900">{entry.company.name}</td>
-                    <td className="px-4 py-3 text-zinc-600">{entry.role.name}</td>
+                    <td className="px-4 py-3 text-zinc-600">{entry.role.name}<span className="ml-1 text-xs text-zinc-400">({entry.role.normalizedTitle.toUpperCase()})</span></td>
                     <td className="px-4 py-3">
                       <span className="bg-blue-50 text-blue-700 text-xs font-medium px-2 py-1 rounded-full">
                         {entry.level}

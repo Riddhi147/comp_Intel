@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { getInsights } from "@/lib/api";
 
-const COMPANIES = ["", "google", "amazon", "flipkart", "swiggy", "zepto"];
+const COMPANIES = ["amazon", "apple", "bytedance", "citadel", "coinbase", "google", "intel", "linkedin", "meta", "microsoft", "netflix", "oracle", "roblox", "salesforce", "snap", "uber"];
 const ROLES = ["", "swe", "sre", "ds", "pm"];
 
 function formatINR(amount: number) {

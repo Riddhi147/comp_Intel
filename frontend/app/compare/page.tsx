@@ -3,10 +3,10 @@
 import { useState } from "react";
 import { getCompare } from "@/lib/api";
 
-const COMPANIES = ["google", "amazon", "flipkart", "swiggy", "zepto"];
+const COMPANIES = ["amazon", "apple", "bytedance", "citadel", "coinbase", "google", "intel", "linkedin", "meta", "microsoft", "netflix", "oracle", "roblox", "salesforce", "snap", "uber"];
 const ROLES = ["swe", "sre", "ds", "pm"];
 const LEVELS = ["junior", "mid", "senior", "staff"];
-const CITIES = ["Bangalore", "Hyderabad", "Mumbai", "Delhi"];
+const CITIES = ["Bengaluru", "Hyderabad", "London", "Remote", "San Mateo", "Singapore"];
 
 function formatINR(amount: number) {
   return new Intl.NumberFormat("en-IN", {
