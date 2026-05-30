@@ -8,6 +8,9 @@ async function bootstrap() {
     origin: '*',
   });
 
-  await app.listen(3000);
+  // Railway injects PORT env variable — must use it
+  const port = process.env.PORT || 3000;
+  await app.listen(port);
+  console.log(`Application running on port ${port}`);
 }
 bootstrap();
